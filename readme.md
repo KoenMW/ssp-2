@@ -73,9 +73,3 @@ Send a message.
 - `200 OK` — message sent successfully
 - `400 Bad Request` — validation failed
 - `500 Internal Server Error` — publishing error
-
-## Architecture Overview
-
-- **Microservices**: Each service is independent and communicates via RabbitMQ.
-- **Clean Architecture**: The Go API follows clear separation of concerns.
-- **Scalable**: Additional consumers or producers can be added without changing existing services.
