@@ -8,6 +8,7 @@ The project consists of:
 1. **Go API Service** – exposes an HTTP endpoint to send messages.
 2. **RabbitMQ** – acts as the message broker between services.
 3. **Python Consumer** – listens to RabbitMQ messages and logs them.
+4. **Go Random message service** - sends random southpark quotes to the api service
 
 ## Requirements
 
@@ -30,6 +31,7 @@ This will start:
 - Go API on `http://localhost:8080`
 - RabbitMQ on `http://localhost:15672` (management UI)
 - Python consumer logs in the console
+- Go random message service
 
 ### Running Without Docker Compose
 
@@ -49,6 +51,12 @@ go run ./app
 
 ```bash
 python consumer.py
+```
+
+4. Run the Go random message service
+
+```bash
+go run .
 ```
 
 The Go API will be available on `http://localhost:8080`, and the Python consumer will log messages to the console.
