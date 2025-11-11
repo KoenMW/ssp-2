@@ -39,3 +39,17 @@ services:
     environment:
       RABBITMQ_HOST: "rabbitmq"
       QUEUE_NAME: "messages"
+
+  go-random-messages:
+    build:
+      context: ./go-random-messages
+      dockerfile: Dockerfile
+    container_name: go-random-messages
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      go-api:
+        condition: service_started
+    environment:
+      QUOTES_URL: "https://southparkquotes.onrender.com/v1/quotes"
+      MESSAGES_URL: "http://go-api:8080/messages"
